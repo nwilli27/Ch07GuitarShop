@@ -31,6 +31,12 @@ namespace GuitarShop.Controllers
                 products = context.Products
                     .OrderBy(p => p.ProductID).ToList();
             }
+            else if (id == "Strings")
+            {
+	            products = context.Products
+		            .Where(p => p.Category.Name == "Guitars" || p.Category.Name == "Basses" || p.Category.Name == "Acoustic")
+		            .OrderBy(p => p.ProductID).ToList();
+            }
             else
             {
                 products = context.Products
@@ -40,7 +46,7 @@ namespace GuitarShop.Controllers
 
             // use ViewBag to pass data to view
             ViewBag.Categories = categories;
-            ViewBag.SelectedCategoryName = id;
+            ViewBag.SelectedCategoryName = id == "Strings" ? "Strings" : id;
 
             // bind products to view
             return View(products);
