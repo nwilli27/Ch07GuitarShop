@@ -20,7 +20,9 @@ namespace GuitarShop.Models
             modelBuilder.Entity<Category>().HasData(
                 new Category { CategoryID = 1, Name = "Guitars" },
                 new Category { CategoryID = 2, Name = "Basses" },
-                new Category { CategoryID = 3, Name = "Drums" }
+                new Category { CategoryID = 3, Name = "Drums" },
+                new Category { CategoryID = 4, Name = "Acoustic" },
+                new Category { CategoryID = 5, Name = "Keyboard" }
             );
 
             modelBuilder.Entity<Product>().HasData(
